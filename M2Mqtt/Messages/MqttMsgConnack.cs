@@ -19,6 +19,16 @@ using uPLibrary.Networking.M2Mqtt.Exceptions;
 
 namespace uPLibrary.Networking.M2Mqtt.Messages
 {
+    public enum ConAckReturnCode
+    {
+        CONN_ACCEPTED = 0x00,
+        CONN_REFUSED_PROT_VERS = 0x01,
+        CONN_REFUSED_IDENT_REJECTED = 0x02,
+        CONN_REFUSED_SERVER_UNAVAILABLE = 0x03,
+        CONN_REFUSED_USERNAME_PASSWORD = 0x04,
+        CONN_REFUSED_NOT_AUTHORIZED = 0x05
+    };
+
     /// <summary>
     /// Class for CONNACK message from broker to client
     /// </summary>
@@ -27,12 +37,12 @@ namespace uPLibrary.Networking.M2Mqtt.Messages
         #region Constants...
 
         // return codes for CONNACK message
-        public const byte CONN_ACCEPTED = 0x00;
-        public const byte CONN_REFUSED_PROT_VERS = 0x01;
-        public const byte CONN_REFUSED_IDENT_REJECTED = 0x02;
-        public const byte CONN_REFUSED_SERVER_UNAVAILABLE = 0x03;
-        public const byte CONN_REFUSED_USERNAME_PASSWORD = 0x04;
-        public const byte CONN_REFUSED_NOT_AUTHORIZED = 0x05;
+        public const byte CONN_ACCEPTED = (byte)ConAckReturnCode.CONN_ACCEPTED;
+        public const byte CONN_REFUSED_PROT_VERS = (byte)ConAckReturnCode.CONN_REFUSED_PROT_VERS;
+        public const byte CONN_REFUSED_IDENT_REJECTED = (byte)ConAckReturnCode.CONN_REFUSED_IDENT_REJECTED;
+        public const byte CONN_REFUSED_SERVER_UNAVAILABLE = (byte)ConAckReturnCode.CONN_REFUSED_SERVER_UNAVAILABLE;
+        public const byte CONN_REFUSED_USERNAME_PASSWORD = (byte)ConAckReturnCode.CONN_REFUSED_USERNAME_PASSWORD;
+        public const byte CONN_REFUSED_NOT_AUTHORIZED = (byte)ConAckReturnCode.CONN_REFUSED_NOT_AUTHORIZED;
 
         private const byte TOPIC_NAME_COMP_RESP_BYTE_OFFSET = 0;
         private const byte TOPIC_NAME_COMP_RESP_BYTE_SIZE = 1;
